@@ -15,7 +15,7 @@
     "root": true
   },
   "engines": {
-    "node": "14.x",
+    "node": "~> 16",
     "yarn": "1.x"
   }
 }
