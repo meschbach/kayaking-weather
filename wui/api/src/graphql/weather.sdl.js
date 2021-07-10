@@ -8,6 +8,6 @@ export const schema = gql`
   }
 
   type Query {
-    weather(zip: String!): Weather!
+    weather(zip: String!): Weather
   }
 `
