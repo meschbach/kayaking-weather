@@ -9,6 +9,11 @@ module.exports = (config, { mode }) => {
 
   // Add custom plugins for your project
   // config.plugins.push(YOUR_PLUGIN)
+  config.plugins.forEach((plugin) => {
+    if (plugin.constructor.name === 'HtmlWebpackPlugin') {
+      plugin.options.title = 'Kayaking Location'
+    }
+  })
 
   return config
 }
