@@ -1,7 +1,7 @@
 import fetch from 'node-fetch'
 
 //TODO: Figure out how secrets injection should work -- env vars are actually insecure
-const API_KEY = process.env["API_KEY"];
+const API_KEY = process.env["OPEN_WEATHER_API_KEY"];
 
 export const weather = async ({ zip }) => {
   const response = await fetch(
