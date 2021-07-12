@@ -22,13 +22,13 @@ export const Failure = ({ error }: CellFailureProps) => (
 )
 
 export const Success = ({ weather }: CellSuccessProps<FindWeatherQuery>) => {
-  return <section>
-    <h1>{weather.city}</h1>
-    <h2>
-      <img src={weather.icon} style={{ maxWidth: '2rem' }} />
-      <span>
-          {weather.temp}°F and {weather.conditions}
-        </span>
-    </h2>
+  return <section className="weather-cell">
+    <div className="weather-cell-weather-icon" style={{backgroundImage: "url("+  weather.icon +")"}}/>
+    <div className="weather-cell-info">
+      <div>{weather.city}</div>
+      <div>
+        {weather.conditions} @ {weather.temp}
+      </div>
+    </div>
   </section>
 }

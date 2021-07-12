@@ -1,3 +1,17 @@
 .home-page .location-entry input {
   display: block;
 }
+
+.weather-cell .weather-cell-info, .weather-cell .weather-cell-weather-icon {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.weather-cell .weather-cell-weather-icon {
+  min-height: 3rem;
+  min-width: 3rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-clip: content-box;
+  background-size: cover;
+}
