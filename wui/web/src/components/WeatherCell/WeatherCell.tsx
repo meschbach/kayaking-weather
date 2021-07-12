@@ -21,6 +21,19 @@ export const Failure = ({ error }: CellFailureProps) => (
   <div style={{ color: 'red' }}>Error: {error.message}</div>
 )
 
+const determineWeather = (temp) => {
+  if( temp < 60 ){
+    return "You'll turn into an ice cube!"
+  }
+  if( temp < 75 ){
+    return "Warmth you will lack, but doable."
+  }
+  if( temp < 90 ) {
+    return "Enjoyable kayaking weather!"
+  }
+  return "Burnt to a crisp in that sun!"
+}
+
 export const Success = ({ weather }: CellSuccessProps<FindWeatherQuery>) => {
   return <section className="weather-cell">
     <div className="weather-cell-weather-icon" style={{backgroundImage: "url("+  weather.icon +")"}}/>
@@ -29,6 +42,9 @@ export const Success = ({ weather }: CellSuccessProps<FindWeatherQuery>) => {
       <div>
         {weather.conditions} @ {weather.temp}
       </div>
+    </div>
+    <div className="weather-cell-determination">
+      {determineWeather(weather.temp)}
     </div>
   </section>
 }
