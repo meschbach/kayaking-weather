@@ -48,7 +48,7 @@ const NewLocationInput = ({onNewLocation}) => {
 }
 
 const LocationsList = ({onNewLocation,locations}) => {
-  return (<div>
+  return (<div className="locations-list">
     <NewLocationPrompt onNewLocation={onNewLocation}/>
     {locations.map(l => <WeatherCell key={l} zipcode={l}/>)}
   </div>);

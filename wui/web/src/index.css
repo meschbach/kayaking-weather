@@ -2,6 +2,15 @@
   display: block;
 }
 
+.home-page .locations-list {
+  display: flex;
+  flex-direction: column;
+}
+.home-page .locations-list > section {
+  display: 1;
+  min-height: 10vh;
+}
+
 .weather-cell .weather-cell-info, .weather-cell .weather-cell-weather-icon {
   display: inline-block;
   vertical-align: middle;
