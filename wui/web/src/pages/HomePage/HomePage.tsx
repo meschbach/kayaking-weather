@@ -3,25 +3,36 @@ import { Form, FieldError, TextField, Submit } from '@redwoodjs/forms'
 import WeatherCell from 'src/components/WeatherCell'
 
 const HomePage = () => {
-  const [zipcode,setZipcode] = useState();
+  const [locations,setLocations] = useState([]);
 
   const onSubmit = (form) => {
-    setZipcode(form.zipcode);
+    const newLocations = locations.concat([form.zipcode]);
+    setLocations(newLocations);
   }
 
   return (<>
-    <Form onSubmit={onSubmit} style={{fontSize: '2rem'}}>
-      <TextField
-        name="zipcode"
-        placeholder="Zip code"
-        maxLength="5"
-        validation={{required: true, pattern: /^\d{5}$/}}
-      />
-      <FieldError name="zipcode" className="error-message" />
-      <Submit>Go</Submit>
-    </Form>
-    {zipcode && <WeatherCell zipcode={zipcode}/>}
+    <section>
+      <h2>Add a Location</h2>
+      <Form onSubmit={onSubmit} style={{fontSize: '2rem'}}>
+        <TextField
+          name="zipcode"
+          placeholder="Zip code"
+          maxLength="5"
+          validation={{required: true, pattern: /^\d{5}$/}}
+        />
+        <Submit>Go</Submit>
+      </Form>
+    </section>
+    <section>
+      <h2>Locations</h2>
+      {locations.length == 0 && <NoLocations/> }
+      {locations.map(l => <WeatherCell zipcode={l}/>)}
+    </section>
   </>)
-};
+}
+
+const NoLocations = () => {
+  return (<div>Add a location above!</div>)
+}
 
 export default HomePage
