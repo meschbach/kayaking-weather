@@ -25,7 +25,7 @@ export const Success = ({ weather }: CellSuccessProps<FindWeatherQuery>) => {
   return <section className="weather-cell">
     <div className="weather-cell-weather-icon" style={{backgroundImage: "url("+  weather.icon +")"}}/>
     <div className="weather-cell-info">
-      <div>{weather.city}</div>
+      <div>{weather.city}, {weather.zip}</div>
       <div>
         {weather.conditions} @ {weather.temp}
       </div>
